@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>XSS in Vue.js ∞ Security Flaws Lab</title>
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<script src="https://unpkg.com/vue-router@4"></script>
+		<script
+			src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+		<script>
+			tailwind.config = {
+				darkMode: 'class',
+				theme: {
+				extend: {
+					animation: {
+					text: 'text 5s ease infinite'
+					},
+					keyframes: {
+					text: {
+						'0%, 100%': {
+						'background-size': '200% 200%',
+						'background-position': 'left center'
+						},
+						'50%': {
+						'background-size': '200% 200%',
+						'background-position': 'right center'
+						}
+					}
+					}
+				}
+				}
+			}
+	    </script>
+	</head>
+	<body class="dark:bg-slate-800 bg-white transition-colors duration-200 text-black dark:text-white">
+		<div id="app">
+			<header>
+				<nav class="sticky top-0 z-50">
+					<div
+						class="backdrop-filter backdrop-blur-lg bg-white/60 dark:bg-slate-800/60 shadow-md">
+						<div class="max-w-5xl mx-auto">
+							<div class="flex justify-between">
+								<div class="flex items-center px-2 py-3">
+									<router-link
+										to="/"
+										class="w-max block animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-2xl font-black">
+										&lt;VulNote/&gt;
+									</router-link>
+								</div>
+								<div class="flex items-center text-end">
+									<a
+										href="https://t.me/secflaws"
+										target="_blank"
+										class="text-xs mx-1 p-2 outline-none flex items-center rounded-md transition-all delay-75 hover:shadow-md focus:shadow-md text-white font-semibold bg-cyan-600 hover:bg-blue-600">Telegram</a>
+									<a
+										href="https://www.youtube.com/@secflaws"
+										target="_blank"
+										class="text-xs mx-1 p-2 outline-none flex items-center rounded-md transition-all delay-75 hover:shadow-md focus:shadow-md text-white font-semibold bg-red-600 hover:bg-red-700">YouTube</a>
+									<a
+										href="https://github.com/amir-h-fallahi/"
+										target="_blank"
+										class="text-xs mx-1 p-2 outline-none flex items-center rounded-md transition-all delay-75 hover:shadow-md focus:shadow-md text-white font-semibold bg-slate-950 hover:bg-slate-900">GitHub</a>
+									<a
+										href="https://twitter.com/amir_h_fallahi"
+										target="_blank"
+										class="text-xs mx-1 p-2 outline-none flex items-center rounded-md transition-all delay-75 hover:shadow-md focus:shadow-md text-white font-semibold bg-sky-500 hover:bg-slate-900">Twitter</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</header>
+			<router-view></router-view>
+		</div>
+		<script src="App.js"></script>
+	</body>
+</html>
